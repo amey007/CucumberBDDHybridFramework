@@ -3,11 +3,10 @@ Feature: Registeration Functionality
   Scenario: User creates an account only with mandatory fields
     Given User navigates to register account page
     When User enters the details into below fields
-      | firstName | Test                    |
-      | lastName  | Auto                    |
-      | email     | testautonare2@gmail.com |
-      | telephone |              1234567890 |
-      | password  |                   12345 |
+      | firstName |Test											|
+      | lastName  |Auto                     |
+      | telephone |1234567890 							|
+      | password  |12345 										|
     And User selects privacy policy
     And User clicks on Continue button
     Then User account should be created successfully
@@ -17,7 +16,6 @@ Feature: Registeration Functionality
     When User enters the details into below fields
       | firstName | Test                    |
       | lastName  | Auto                    |
-      | email     | testautonare2@gmail.com |
       | telephone |              1234567890 |
       | password  |                   12345 |
     And User selects Yes for Newsletter
@@ -27,10 +25,10 @@ Feature: Registeration Functionality
 
   Scenario: User creates a duplicate account
     Given User navigates to register account page
-    When User enters the details into below fields
+    When User enters the details into below fields with duplicate email
       | firstName | Test                    |
       | lastName  | Auto                    |
-      | email     | testautonare2@gmail.com |
+      | email     | testautonare1@gmail.com |
       | telephone |              1234567890 |
       | password  |                   12345 |
     And User selects Yes for Newsletter

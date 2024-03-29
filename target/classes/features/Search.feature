@@ -4,7 +4,7 @@ Feature: Search functionality
     Given User is on the Home page
     When User enters valid product "HP" in the search box field
     And User clicks on Search button
-    Then User should get valid product(s) displayed in search results
+    Then User should get valid products displayed in search results
 
   Scenario: User searches for an invalid product
     Given User is on the Home page
