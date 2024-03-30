@@ -1,6 +1,7 @@
 package factory;
 
 import java.time.Duration;
+import java.util.Properties;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -8,11 +9,15 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.safari.SafariDriver;
 
+import utils.ConfigReader;
+
 public class DriverFactory {
 	
 	static WebDriver driver = null;
 	
-	public static void initializeBrowser(String browserName) {
+	public static WebDriver initializeBrowser(String browserName) {
+		ConfigReader configReader = new ConfigReader();
+		Properties prop = configReader.initializeProperties();
 		
 		if (browserName.equalsIgnoreCase("chrome")) {
 			driver = new ChromeDriver();
@@ -27,7 +32,9 @@ public class DriverFactory {
 		driver.manage().deleteAllCookies();
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-		driver.get("https://tutorialsninja.com/demo/");
+		driver.get(prop.getProperty("url"));
+		
+		return driver;
 		
 	}
 	
