@@ -5,14 +5,18 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import utils.ElementUtils;
+
 public class HomePage {
 
 	private WebDriver driver;
+	private ElementUtils elemUtils;
 
 	// Constructor for loading the locators
 	public HomePage(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
+		elemUtils = new ElementUtils(driver);
 	}
 
 	// Object Repository
@@ -33,25 +37,25 @@ public class HomePage {
 
 	// Page Actions
 	public void clickOnMyAcct() {
-		myAccountDropDown.click();
+		elemUtils.clickOnElement(myAccountDropDown, 15);
 	}
 
 	public LoginPage selectLoginOption() {
-		loginOption.click();
+		elemUtils.clickOnElement(loginOption, 15);
 		return new LoginPage(driver);
 	}
 	
 	public RegisterPage selectRegisterOption() {
-		registerOption.click();
+		elemUtils.clickOnElement(registerOption, 15);
 		return new RegisterPage(driver);
 	}
 	
 	public void enterProductInSearchBoxField(String product) {
-		searchBox.sendKeys(product);
+		elemUtils.typeTextIntoElement(searchBox, product, 15);
 	}
 	
 	public SearchResultsPage clickOnSearchBtn() {
-		searchBtn.click();
+		elemUtils.clickOnElement(searchBtn, 15);
 		return new SearchResultsPage(driver);
 	}
 

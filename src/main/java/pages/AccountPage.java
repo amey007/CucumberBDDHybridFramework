@@ -5,15 +5,19 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import utils.ElementUtils;
+
 public class AccountPage {
 
-	WebDriver driver;
+	private WebDriver driver;
+	private ElementUtils elemUtils;
 	
 	//Constructor
 	public AccountPage(WebDriver driver) {
 		// TODO Auto-generated constructor stub
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
+		elemUtils = new ElementUtils(driver);
 	}
 	
 	// Page Objects
@@ -24,7 +28,7 @@ public class AccountPage {
 	
 	// Page Actions 
 	public boolean displayStatusOfEditAcctInfoLink() {
-		return editAcctInfoLink.isDisplayed();
+		return elemUtils.checkElementIsDisplayed(editAcctInfoLink, 15);
 	}
 
 }

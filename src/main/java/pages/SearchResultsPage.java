@@ -5,15 +5,19 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import utils.ElementUtils;
+
 public class SearchResultsPage {
 
 	private WebDriver driver;
+	private ElementUtils elemUtils;
 
 	// Constructor
 	public SearchResultsPage(WebDriver driver) {
 		// TODO Auto-generated constructor stub
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
+		elemUtils = new ElementUtils(driver);
 	}
 
 	// Page Objects
@@ -27,11 +31,11 @@ public class SearchResultsPage {
 	// Page Actions
 
 	public boolean retriveDisplayStatusOfValidProductResult() {
-		return validProductResult.isDisplayed();
+		return elemUtils.checkElementIsDisplayed(validProductResult, 15);
 	}
 	
 	public String retrieveTextFromNoProductFoundMessageField() {
-		return noProductFoundMessageField.getText();
+		return elemUtils.retrieveTextFromElement(noProductFoundMessageField, 15);
 	}
 
 }

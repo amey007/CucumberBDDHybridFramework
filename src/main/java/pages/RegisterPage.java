@@ -5,15 +5,19 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import utils.ElementUtils;
+
 public class RegisterPage {
 	
 	private WebDriver driver;
+	private ElementUtils elemUtils;
 
 	// Constructor
 	public RegisterPage(WebDriver driver) {
 		// TODO Auto-generated constructor stub
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
+		elemUtils = new ElementUtils(driver);
 	}
 	
 	// Page Objects
@@ -70,68 +74,68 @@ public class RegisterPage {
 	// Page Actions
 	
 	public void enterFirstName(String firstNameText) {
-		firstNameField.sendKeys(firstNameText);		
+		elemUtils.typeTextIntoElement(firstNameField, firstNameText, 15);		
 	}
 	
 	public void enterLastName(String lastNameText) {
-		lastNameField.sendKeys(lastNameText);
+		elemUtils.typeTextIntoElement(lastNameField, lastNameText, 15);
 	}
 	
 	public void enterEmailAddress(String emailAddressText) {
-		emailAddressField.sendKeys(emailAddressText);		
+		elemUtils.typeTextIntoElement(emailAddressField, emailAddressText, 15);		
 	}
 	
 	public void enterTelephoneNumber(String telephoneText) {
-		telephoneField.sendKeys(telephoneText);
+		elemUtils.typeTextIntoElement(telephoneField, telephoneText, 15);
 	}
 	
 	public void enterPassword(String passwordText) {
-		passwordField.sendKeys(passwordText);
+		elemUtils.typeTextIntoElement(passwordField, passwordText, 15);
 	}
 	
 	public void enterConfirmPassword(String confirmPasswordText) {
-		confirmPasswordField.sendKeys(confirmPasswordText);
+		elemUtils.typeTextIntoElement(confirmPasswordField, confirmPasswordText, 15);
 	}
 	
 	public void selectYesNewsletterCheckboxField() {
-		yesNewsletterCheckBox.click();
+		elemUtils.clickOnElement(yesNewsletterCheckBox, 15);
 	}
 	
 	public void selectPrivacyPolicy() {
-		privacyPolicyBox.click();
+		elemUtils.clickOnElement(privacyPolicyBox, 15);
 	}
 	
 	public AccountSuccessPage clickOnContinueBtn(){
-		continueBtn.click();
+		elemUtils.clickOnElement(continueBtn, 15);
 		return new AccountSuccessPage(driver);
 	}
 
 	public String retriveTextForDuplicateEmailWarning() {
-		return duplicateEmailWarning.getText();
+		return elemUtils.retrieveTextFromElement(duplicateEmailWarning, 15);
 	}
 	
 	public String retriveTextForPolicyWarning() {
-		return policyWarning.getText();
+		return elemUtils.retrieveTextFromElement(policyWarning, 15);
 	}
 	
 	public String retriveTextForFirstNameWarning() {
-		return firstNameWarning.getText();
+		return elemUtils.retrieveTextFromElement(firstNameWarning, 15);
 	}
 	
 	public String retriveTextForLastNameWarning() {
-		return lastNameWarning.getText();
+		return elemUtils.retrieveTextFromElement(lastNameWarning, 15);
 	}
 	
 	public String retriveTextForEmailAddressWarning() {
-		return emailAddressWarning.getText();
+		return elemUtils.retrieveTextFromElement(emailAddressWarning, 15);
 	}
 	
 	public String retriveTextForTelephoneWarning() {
-		return telephoneWarning.getText();
+		return elemUtils.retrieveTextFromElement(telephoneWarning, 15);
 	}
 	
 	public String retriveTextForPasswordWarning() {
-		return passwordWarning.getText();
+		return elemUtils.retrieveTextFromElement(passwordWarning, 15);
 	}
 	
 	

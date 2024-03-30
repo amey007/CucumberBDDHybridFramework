@@ -5,15 +5,19 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import utils.ElementUtils;
+
 public class AccountSuccessPage {
 	
 	private WebDriver driver;
+	private ElementUtils elemUtils;
 	
 	// Constructor
 	public AccountSuccessPage(WebDriver driver) {
 		// TODO Auto-generated constructor stub
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
+		elemUtils = new ElementUtils(driver);
 	}
 	
 	// Page Objects
@@ -24,7 +28,7 @@ public class AccountSuccessPage {
 	// Page Actions
 	
 	public String retriveTextFromAccountCreatedSuccessMessageField() {
-		return accountCreatedSuccessMessage.getText();
+		return elemUtils.retrieveTextFromElement(accountCreatedSuccessMessage, 15);
 	}
 
 }
