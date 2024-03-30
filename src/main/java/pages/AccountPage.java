@@ -5,6 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import utils.CommonUtils;
 import utils.ElementUtils;
 
 public class AccountPage {
@@ -28,7 +29,7 @@ public class AccountPage {
 	
 	// Page Actions 
 	public boolean displayStatusOfEditAcctInfoLink() {
-		return elemUtils.checkElementIsDisplayed(editAcctInfoLink, 15);
+		return elemUtils.checkElementIsDisplayed(editAcctInfoLink, CommonUtils.EXPLICIT_WAIT_TIME);
 	}
 
 }

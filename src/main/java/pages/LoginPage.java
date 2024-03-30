@@ -5,6 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import utils.CommonUtils;
 import utils.ElementUtils;
 
 public class LoginPage {
@@ -38,20 +39,20 @@ public class LoginPage {
 	
 	// Page Actions
 	public void enterEmailAddress(String emailText) {
-		elemUtils.typeTextIntoElement(emailField, emailText, 15);
+		elemUtils.typeTextIntoElement(emailField, emailText, CommonUtils.EXPLICIT_WAIT_TIME);
 	}
 	
 	public void enterPassword(String passwordText) {
-		elemUtils.typeTextIntoElement(passwordField, passwordText, 15);
+		elemUtils.typeTextIntoElement(passwordField, passwordText, CommonUtils.EXPLICIT_WAIT_TIME);
 	}
 	
 	public AccountPage clickOnLoginBtn() {
-		elemUtils.clickOnElement(loginBtn, 15);
+		elemUtils.clickOnElement(loginBtn, CommonUtils.EXPLICIT_WAIT_TIME);
 		return new AccountPage(driver);
 	}
 	
 	public String retrieveTextForNoEmailMatchWarning() {
-		return elemUtils.retrieveTextFromElement(noEmailMatchWarning, 15);	
+		return elemUtils.retrieveTextFromElement(noEmailMatchWarning, CommonUtils.EXPLICIT_WAIT_TIME);	
 	}
 	
 }

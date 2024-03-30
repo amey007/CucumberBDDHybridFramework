@@ -5,6 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import utils.CommonUtils;
 import utils.ElementUtils;
 
 public class SearchResultsPage {
@@ -31,11 +32,11 @@ public class SearchResultsPage {
 	// Page Actions
 
 	public boolean retriveDisplayStatusOfValidProductResult() {
-		return elemUtils.checkElementIsDisplayed(validProductResult, 15);
+		return elemUtils.checkElementIsDisplayed(validProductResult, CommonUtils.EXPLICIT_WAIT_TIME);
 	}
 	
 	public String retrieveTextFromNoProductFoundMessageField() {
-		return elemUtils.retrieveTextFromElement(noProductFoundMessageField, 15);
+		return elemUtils.retrieveTextFromElement(noProductFoundMessageField, CommonUtils.EXPLICIT_WAIT_TIME);
 	}
 
 }

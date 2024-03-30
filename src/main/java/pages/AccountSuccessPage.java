@@ -5,6 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import utils.CommonUtils;
 import utils.ElementUtils;
 
 public class AccountSuccessPage {
@@ -28,7 +29,7 @@ public class AccountSuccessPage {
 	// Page Actions
 	
 	public String retriveTextFromAccountCreatedSuccessMessageField() {
-		return elemUtils.retrieveTextFromElement(accountCreatedSuccessMessage, 15);
+		return elemUtils.retrieveTextFromElement(accountCreatedSuccessMessage, CommonUtils.EXPLICIT_WAIT_TIME);
 	}
 
 }

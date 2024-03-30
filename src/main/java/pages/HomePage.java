@@ -5,6 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import utils.CommonUtils;
 import utils.ElementUtils;
 
 public class HomePage {
@@ -37,25 +38,25 @@ public class HomePage {
 
 	// Page Actions
 	public void clickOnMyAcct() {
-		elemUtils.clickOnElement(myAccountDropDown, 15);
+		elemUtils.clickOnElement(myAccountDropDown, CommonUtils.EXPLICIT_WAIT_TIME);
 	}
 
 	public LoginPage selectLoginOption() {
-		elemUtils.clickOnElement(loginOption, 15);
+		elemUtils.clickOnElement(loginOption, CommonUtils.EXPLICIT_WAIT_TIME);
 		return new LoginPage(driver);
 	}
 	
 	public RegisterPage selectRegisterOption() {
-		elemUtils.clickOnElement(registerOption, 15);
+		elemUtils.clickOnElement(registerOption, CommonUtils.EXPLICIT_WAIT_TIME);
 		return new RegisterPage(driver);
 	}
 	
 	public void enterProductInSearchBoxField(String product) {
-		elemUtils.typeTextIntoElement(searchBox, product, 15);
+		elemUtils.typeTextIntoElement(searchBox, product, CommonUtils.EXPLICIT_WAIT_TIME);
 	}
 	
 	public SearchResultsPage clickOnSearchBtn() {
-		elemUtils.clickOnElement(searchBtn, 15);
+		elemUtils.clickOnElement(searchBtn, CommonUtils.EXPLICIT_WAIT_TIME);
 		return new SearchResultsPage(driver);
 	}
 
