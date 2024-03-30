@@ -10,6 +10,6 @@ import io.cucumber.junit.CucumberOptions;
 				 glue = { "stepdefinitions", "hooks" },
 				 plugin = {"pretty", "html:target/CucumberReports/CucumberReport.html"},
 				 publish = true)
-public class MyRunner {
+public class TestRunner {
 
 }
